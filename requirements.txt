@@ -1,0 +1,29 @@
+# Core ML
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Detection framework
+ultralytics>=8.0.0
+
+# Data handling
+numpy>=1.24.0
+pillow>=9.0.0
+pandas>=2.0.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# ONNX export and optimization
+onnx>=1.14.0
+onnxruntime>=1.15.0
+
+# Progress bars
+tqdm>=4.65.0
+
+# Notebooks
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Optional: TensorRT (uncomment if using NVIDIA GPU with TensorRT)
+# tensorrt>=8.6.0

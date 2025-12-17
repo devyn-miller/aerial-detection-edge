@@ -1,0 +1,39 @@
+# Data (too large for git)
+data/raw/
+data/processed/
+*.zip
+
+# Model checkpoints
+*.pt
+*.pth
+*.onnx
+runs/
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Results (optional - uncomment if you want to commit results)
+# results/
