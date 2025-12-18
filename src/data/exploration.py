@@ -249,16 +249,41 @@ def sample_and_visualize(
     images_dir = Path(images_dir)
     labels_dir = Path(labels_dir)
     
+    # Check if directories exist
+    if not labels_dir.exists():
+        print(f"ERROR: Labels directory does not exist: {labels_dir}")
+        print(f"Current working directory: {os.getcwd()}")
+        return
+    
+    if not images_dir.exists():
+        print(f"ERROR: Images directory does not exist: {images_dir}")
+        print(f"Current working directory: {os.getcwd()}")
+        return
+    
     np.random.seed(seed)
     
     label_files = list(labels_dir.glob('*.txt'))
+    if len(label_files) == 0:
+        print(f"ERROR: No label files found in {labels_dir}")
+        return
+    
+    print(f"Found {len(label_files)} label files. Sampling {min(n_samples, len(label_files))}...")
+    
     samples = np.random.choice(label_files, min(n_samples, len(label_files)), replace=False)
     
+    found_images = 0
     for label_path in samples:
         img_path = images_dir / f"{label_path.stem}.jpg"
         if img_path.exists():
             visualize_detections(str(img_path), str(label_path))
             plt.show()
+            found_images += 1
+        else:
+            print(f"Warning: Image not found for {label_path.stem}: {img_path}")
+    
+    if found_images == 0:
+        print(f"ERROR: No matching images found in {images_dir}")
+        print(f"Tried to find images matching label files from {labels_dir}")
 
 
 # Quick stats function for notebooks
